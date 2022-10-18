@@ -23,8 +23,10 @@ public class ExerciseSet02 {
         int num5= Terminal.readInt("höhe");
         printTriangle(num5);
         */
-        int num6= Terminal.readInt("hoehe");
-        printTriangle(num6);
+        /**
+         * make it easier
+         */
+        printTriangle(Terminal.readInt("hoehe"));
     }
     public static void printSequence1(int number1){
     for (int i=1; i<= number1; i++)
@@ -41,16 +43,11 @@ public class ExerciseSet02 {
         for (int i=1; i< number3; i++)
             System.out.println((i*(i+1))/2);
     }
-    public static void printTriangle(int height) {
+    public static void printTriangle(int height)
+    {
 
         for (int i = 0; i < height; i++) {
-            for (int e = 1; e < height; e++) {
-                System.out.print(" ");
-            }
+            System.out.print(". ".repeat(i + 1).indent(height - i));
         }
-        for (int j = 0; j < height; j++) {
-                System.out.println(".");
-
-            }
     }
 }
