@@ -5,9 +5,9 @@ public class ExerciseSet03 {
             print();
 
         planProject();
-        getDaysOfMonth(Terminal.readInt("month"), Terminal.readInt("year"));
+        getDaysOfMonth(Terminal.readInt("month"), Terminal.readInt("year"));*/
     getDayOfTheWeek(Terminal.readInt("day"),Terminal.readInt("month"), Terminal.readInt("year"));
-*/ printCalendar(Terminal.readInt("month"), Terminal.readInt("year"));
+// printCalendar(Terminal.readInt("month"), Terminal.readInt("year"));
     }
 
     public static void print(){
@@ -29,42 +29,79 @@ public class ExerciseSet03 {
         System.out.println(u+ " EUR gesamtkosten");
     }
     public static int getDaysOfMonth(int month, int year){
-        if (month < 8) {
-            if (month == 2) {
-                if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
-                    return 29;
-                } else {
-                    return 28;
-                }
-            } else {
-                if (month % 2 == 0) {
-                    return 30;
-                } else {
-                    return 31;
-                }
-            }
-        } else {
-            if (month % 2 == 0) {
-                return 31;
-            } else {
-                return 30;
-            }
+
+          int days= 0;
+        switch (month){
+            case 0:
+                break;
+            case 1:
+                days= 31;
+                break;
+            case 2:
+                if ( year%4==0){
+                   days= 29;
+                } else
+                days=28;
+                break;
+            case 3:
+                days= 31;
+                break;
+            case 5:
+                days= 31;
+                break;
+            case 8:
+                days= 31;
+                break;
+            case 12:
+                days= 31;
+                break;
+            case 4:
+                days= 30;
+                break;
+            case 11:
+                days= 30;
+                break;
+            case 6:
+                days= 30;
+                break;
+            case 7:
+                days= 31;
+                break;
+            case 9:
+                days= 30;
+                break;
+            case 10:
+                days= 31;
+                break;
+        }
+return days;
+    }
+    public static int getDayOfTheWeek
+            (int day, int month, int year) {
+          int wochentag= ((day+((month+1)*13)/5)%+(year%100)+((year%100)/4)%+(((year- (year%100))/100)/4)%-2*((year- (year%100))/100))%7;
+        if (wochentag==0) wochentag=7;
+          System.out.println(wochentag);
+          return wochentag;
+    }
+    public static void printCalendar(int month, int year){
+
+
+        System.out.println("" +
+                "MO     " + "DI     " + "MI     " + "DO     " + "FR     " + "SA     " + "SO");
+        for (int i=1; i<getDayOfTheWeek(1, month, year); i++)
+            System.out.print(" "); //passt aber sout von getDayOfTheWeek stört
+
+
+
+
+        for (int k=1; k>getDayOfTheWeek(1, month, year); k++)
+            if (k%7!=0)
+                System.out.print(k+
+                        "   ")   ;
+            else System.out.println(k+
+                    "");
+
+
         }
     }
-
-    public static int getDayOfTheWeek(int day, int month, int year)
-    {
-        int wochentag = ((day + ((month + 1) * 13) / 5) % +(year % 100) + ((year % 100) / 4) % +(((year - (year % 100)) / 100) / 4) % -2 * ((year - (year % 100)) / 100)) % 7;
-        if (wochentag == 0) wochentag = 7;
-        System.out.println(wochentag);
-        return wochentag;
-    }
-
-    public static void printCalendar(int month, int year)
-    {
-        for (int i = 1; i <= getDaysOfMonth(month, year); i++)
-            if (i % 7 != 0) System.out.print(i + " ");
-            else System.out.println(i);
-    }
-}
 
