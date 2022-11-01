@@ -3,7 +3,7 @@ public class set4 {
         //  startByteOverflowDemo();
         //  demonstrateArithmeticOperations();
        // convertToBinary();
-        System.out.print("Please provide a hexadecimal number (e.g. 1f): ");
+
         convertHexToDec0();
      //   convertToNumber(Terminal.readChar());
 
@@ -38,14 +38,25 @@ public class set4 {
         }
     }
     public static void convertHexToDec0() {
+        System.out.print("Please provide a hexadecimal number (e.g. 1f): ");
         int result = 0;
         char ch = Terminal.readChar();
         while (ch != '\n') {
-            int code = ch;
-            System.out.println(ch + " -> " + code);
+
+            if (ch >= '0' && ch <= '9') {
+                int val = ch - '0';
+
+                System.out.println(val);
+            } else if (ch >= 'a' && ch <= 'f') {
+                int val = ch - 'a' + 10;
+                System.out.println(val);
+
+            }
             ch = Terminal.readChar();
+
+        }
         System.out.println("Corresponding decimal number: " + result);
-    }
+        System.out.println(ch);
     }
     public static int convertToNumber(char ch) {
         int result=0;
