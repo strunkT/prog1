@@ -5,7 +5,7 @@ public class set4 {
        // convertToBinary();
 
         convertHexToDec0();
-     //   convertToNumber(Terminal.readChar());
+        //  convertToNumber();
 
     }
     public static void startByteOverflowDemo() {
@@ -52,19 +52,32 @@ public class set4 {
                 System.out.println(val);
 
             }
+            System.out.println(ch);
             ch = Terminal.readChar();
 
         }
         System.out.println("Corresponding decimal number: " + result);
         System.out.println(ch);
     }
-    public static int convertToNumber(char ch) {
-        int result=0;
+    public static int convertToNumber() {
+        System.out.print("Please provide a hexadecimal number (e.g. 1f): ");
+        char ch = Terminal.readChar();
+        int x=0;
+        int code = ch;
+
+        if (code >= 97 && code <= 102) {
+            x = code - 87;
+        }
+        else  if (code >= 65 && code <= 70) {
+            x = code - 55;
+        }
+        else  if (code >= 49 && code <= 57) {
+            x = code - 48;
+        }
+        System.out.println(x);
+        return x;
 
 
-
-
-        return result;
         }
 
 
